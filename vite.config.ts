@@ -5,18 +5,18 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/', // IMPORTANT: use '/' for custom domains
   server: {
-    host: "::",
+    host: '::',
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(), // if you're using this plugin
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 }));
