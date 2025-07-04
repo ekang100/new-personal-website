@@ -38,24 +38,37 @@ const Contact = () => {
 
           {/* Contact links */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {links.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="group bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-200 hover-lift border border-white/20"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="flex items-center justify-center mb-3">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                    <link.icon size={20} />
-                  </div>
-                  <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+          {links.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              className="group relative bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-200 hover-lift border border-white/20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* Top-right hover arrow */}
+              <ArrowUpRight
+                size={16}
+                className="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+              />
+
+              {/* Icon + Text */}
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                  <link.icon size={18} className="text-white" />
                 </div>
-                <h3 className="text-lg font-semibold mb-1">{link.name}</h3>
-                <p className="text-white/80 text-sm">{link.description}</p>
-              </a>
-            ))}
+
+                <div className="flex flex-col justify-center text-left">
+                  <h3 className="text-lg font-semibold text-white leading-tight">
+                    {link.name}
+                  </h3>
+                  <p className="text-sm text-white/80 leading-snug">
+                    {link.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
           </div>
 
           {/* CTA */}

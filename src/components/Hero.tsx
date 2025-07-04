@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Enhanced background gradient with animation */}
-      <div className="absolute inset-0 gradient-sage opacity-40 animate-pulse"></div>
+      <div className="absolute inset-0 animate-gradient opacity-70 z-0"></div>
       
       {/* More floating elements for visual interest */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-matcha-light rounded-full opacity-20 animate-float"></div>
@@ -14,17 +14,7 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-matcha rounded-full opacity-10 animate-float delay-700"></div>
       <div className="absolute bottom-1/4 left-20 w-18 h-18 bg-sage rounded-full opacity-25 animate-float delay-300"></div>
       <div className="absolute top-3/4 right-1/3 w-14 h-14 bg-brown-light rounded-full opacity-20 animate-float delay-1200"></div>
-      
-      {/* Interactive floating icons */}
-      <div className="absolute top-1/3 left-1/6 opacity-20 animate-float delay-400">
-        <Coffee size={24} className="text-matcha" />
-      </div>
-      <div className="absolute bottom-1/3 right-1/6 opacity-20 animate-float delay-800">
-        <Sparkles size={20} className="text-brown" />
-      </div>
-      <div className="absolute top-2/3 left-1/3 opacity-15 animate-float delay-600">
-        <Heart size={18} className="text-matcha-dark" />
-      </div>
+    
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">

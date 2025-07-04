@@ -103,7 +103,7 @@ const About = () => {
               {values.map((value, index) => (
                 <div key={index} className="floating-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
                   <div className="w-16 h-16 bg-gradient-matcha rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <value.icon size={24} className="text-white" />
+                    <value.icon size={36} className="text-[#a47148]" />
                   </div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-4 text-center">
                     {value.title}
@@ -125,7 +125,7 @@ const About = () => {
               {interests.map((interest, index) => (
                 <div key={index} className="floating-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
                   <div className="w-16 h-16 bg-gradient-brown rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <interest.icon size={24} className="text-white" />
+                    <interest.icon size={36} className="text-[#a47148]" />
                   </div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-4 text-center">
                     {interest.title}

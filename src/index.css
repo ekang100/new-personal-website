@@ -125,14 +125,21 @@ All colors MUST be HSL.
     animation: gradient-shift 8s ease-in-out infinite;
   }
 
-  @keyframes gradient-shift {
+  @keyframes gradientShift {
     0%, 100% {
-      background: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--matcha-light)));
+      background-position: 0% 50%;
     }
     50% {
-      background: linear-gradient(135deg, hsl(var(--matcha-light)), hsl(var(--sage)));
+      background-position: 100% 50%;
     }
   }
+  
+  .animate-gradient {
+    background: linear-gradient(270deg, #f8efe4, #d9c4b0, #fefaf3);
+    background-size: 600% 600%;
+    animation: gradientShift 20s ease infinite;
+  }
+
 
   .text-matcha {
     color: hsl(var(--matcha));
