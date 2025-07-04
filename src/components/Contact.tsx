@@ -46,11 +46,11 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-center mb-3">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <link.icon size={20} />
                   </div>
-                  <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
                 </div>
                 <h3 className="text-lg font-semibold mb-1">{link.name}</h3>
                 <p className="text-white/80 text-sm">{link.description}</p>

@@ -14,12 +14,6 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Status badge */}
-          <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border shadow-sm">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-gray-700">Available for opportunities</span>
-          </div>
-
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="block text-gray-900">Hi, I'm</span>
@@ -41,7 +35,7 @@ const Hero = () => {
           <div className="flex flex-wrap items-center justify-center gap-6 mb-12 text-gray-700">
             <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2">
               <MapPin size={18} className="text-brown" />
-              <span>San Francisco Bay Area</span>
+              <span>New York City</span>
             </div>
             <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2">
               <Coffee size={18} className="text-matcha" />
