@@ -122,6 +122,16 @@ All colors MUST be HSL.
 
   .gradient-sage {
     background: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--matcha-light)));
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--matcha-light)));
+    }
+    50% {
+      background: linear-gradient(135deg, hsl(var(--matcha-light)), hsl(var(--sage)));
+    }
   }
 
   .text-matcha {
@@ -161,7 +171,7 @@ All colors MUST be HSL.
   }
 
   .hover-lift {
-    transition: transform 0.2s ease-out;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
   }
 
   .hover-lift:hover {
@@ -175,5 +185,37 @@ All colors MUST be HSL.
   .floating-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-800 {
+    animation-delay: 800ms;
+  }
+
+  .delay-1200 {
+    animation-delay: 1200ms;
   }
 }
