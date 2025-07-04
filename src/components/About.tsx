@@ -1,5 +1,4 @@
-
-import { Heart, Users, Lightbulb, Target } from "lucide-react";
+import { Heart, Users, Lightbulb, Target, Coffee } from "lucide-react";
 
 const About = () => {
   const interests = [
