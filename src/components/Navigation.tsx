@@ -17,6 +17,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "About", href: "#about" },
+    { name: "Portfolio", href: "#portfolio" },
     { name: "Contact", href: "#contact" }
   ];
 
@@ -43,9 +44,9 @@ const Navigation = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-xl font-bold text-matcha hover:text-matcha-dark transition-colors"
+            className="text-xl font-bold text-brown hover:text-brown-dark transition-colors"
           >
-            Your Name
+            Ellie Kang
           </a>
 
           {/* Desktop Navigation */}
@@ -58,14 +59,14 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-gray-700 hover:text-matcha transition-colors font-medium"
+                className="text-gray-700 hover:text-brown transition-colors font-medium"
               >
                 {link.name}
               </a>
             ))}
             <a
-              href="mailto:hello@yourname.com"
-              className="bg-matcha text-white px-4 py-2 rounded-full hover:bg-matcha-dark transition-colors font-medium"
+              href="mailto:ekangster1@gmail.com"
+              className="bg-brown text-white px-4 py-2 rounded-full hover:bg-brown-dark transition-colors font-medium"
             >
               Get in touch
             </a>
@@ -74,7 +75,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-matcha transition-colors"
+            className="md:hidden p-2 text-gray-700 hover:text-brown transition-colors"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -92,14 +93,14 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection(link.href);
                   }}
-                  className="block text-gray-700 hover:text-matcha transition-colors font-medium"
+                  className="block text-gray-700 hover:text-brown transition-colors font-medium"
                 >
                   {link.name}
                 </a>
               ))}
               <a
-                href="mailto:hello@yourname.com"
-                className="block bg-matcha text-white px-4 py-2 rounded-full hover:bg-matcha-dark transition-colors font-medium text-center"
+                href="mailto:ekangster1@gmail.com"
+                className="block bg-brown text-white px-4 py-2 rounded-full hover:bg-brown-dark transition-colors font-medium text-center"
               >
                 Get in touch
               </a>

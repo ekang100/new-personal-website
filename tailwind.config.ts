@@ -53,14 +53,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Custom matcha-inspired colors
+				// Custom matcha-inspired colors with brown accents
 				matcha: {
 					DEFAULT: 'hsl(var(--matcha))',
 					light: 'hsl(var(--matcha-light))',
 					dark: 'hsl(var(--matcha-dark))'
 				},
+				brown: {
+					DEFAULT: 'hsl(var(--brown))',
+					light: 'hsl(var(--brown-light))',
+					dark: 'hsl(var(--brown-dark))'
+				},
 				cream: 'hsl(var(--cream))',
-				'warm-gray': 'hsl(var(--warm-gray))'
+				'warm-gray': 'hsl(var(--warm-gray))',
+				sage: 'hsl(var(--sage))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -93,12 +99,21 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in': 'fade-in 0.6s ease-out',
+				'float': 'float 6s ease-in-out infinite'
 			}
 		}
 	},

@@ -6,25 +6,25 @@ const Contact = () => {
     {
       name: "Email",
       icon: Mail,
-      href: "mailto:hello@yourname.com",
+      href: "mailto:ekangster1@gmail.com",
       description: "Let's start a conversation"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://linkedin.com/in/yourprofile",
+      href: "https://www.linkedin.com/in/elianne-kang/",
       description: "Connect professionally"
     },
     {
       name: "GitHub",
       icon: Github,
-      href: "https://github.com/yourusername",
+      href: "https://github.com/ekang100",
       description: "Check out my code"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 gradient-matcha text-white">
+    <section id="contact" className="py-20 gradient-brown text-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
@@ -65,11 +65,11 @@ const Contact = () => {
             </h3>
             <p className="text-white/90 mb-6">
               I'm particularly interested in startups focused on real-life interactions, 
-              community-driven platforms, and products that bring people together.
+              community-driven platforms, and products that bring people together like Beli and Series.
             </p>
             <a
-              href="mailto:hello@yourname.com"
-              className="inline-flex items-center gap-2 bg-white text-matcha px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200"
+              href="mailto:ekangster1@gmail.com"
+              className="inline-flex items-center gap-2 bg-white text-brown px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200"
             >
               <Mail size={18} />
               Start a conversation

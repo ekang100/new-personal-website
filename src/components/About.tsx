@@ -1,3 +1,4 @@
+
 import { Heart, Users, Lightbulb, Target, Coffee } from "lucide-react";
 
 const About = () => {
@@ -5,22 +6,26 @@ const About = () => {
     {
       icon: Users,
       title: "Community Building",
-      description: "Creating spaces where authentic connections flourish and people feel genuinely supported."
+      description: "Creating spaces where authentic connections flourish and people feel genuinely supported.",
+      color: "bg-brown"
     },
     {
       icon: Heart,
       title: "Real-life Interactions",
-      description: "Passionate about products like Beli and Series that prioritize in-person experiences."
+      description: "Passionate about products like Beli and Series that prioritize in-person experiences.",
+      color: "bg-matcha"
     },
     {
       icon: Lightbulb,
       title: "Product Strategy",
-      description: "Translating user needs into compelling product experiences that drive meaningful engagement."
+      description: "Translating user needs into compelling product experiences that drive meaningful engagement.",
+      color: "bg-brown-light"
     },
     {
       icon: Target,
       title: "Startup Ecosystem",
-      description: "Fascinated by early-stage companies solving problems through human-centered design."
+      description: "Fascinated by early-stage companies solving problems through human-centered design.",
+      color: "bg-matcha-light"
     }
   ];
 
@@ -63,20 +68,26 @@ const About = () => {
               </p>
             </div>
 
-            {/* Right column - Image placeholder */}
+            {/* Right column - Enhanced visual */}
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-matcha-light to-matcha rounded-2xl p-8 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Coffee size={40} />
+              <div className="aspect-square gradient-sage rounded-2xl p-8 flex items-center justify-center relative overflow-hidden">
+                <div className="text-center text-brown-dark relative z-10">
+                  <div className="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <Coffee size={40} className="text-brown" />
                   </div>
-                  <p className="text-lg font-medium">Matcha-powered</p>
-                  <p className="text-sm opacity-90">Product Management</p>
+                  <p className="text-lg font-semibold">Matcha-powered</p>
+                  <p className="text-sm opacity-80">Product Management</p>
+                </div>
+                {/* Decorative pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-brown rounded-full"></div>
+                  <div className="absolute bottom-8 right-8 w-6 h-6 bg-matcha rounded-full"></div>
+                  <div className="absolute top-1/3 right-6 w-4 h-4 bg-brown-light rounded-full"></div>
                 </div>
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-matcha-light rounded-full opacity-30"></div>
-              <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-matcha rounded-full opacity-20"></div>
+              {/* Floating decorative elements */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-brown-light rounded-full opacity-20 animate-float"></div>
+              <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-matcha rounded-full opacity-15 animate-float delay-1000"></div>
             </div>
           </div>
 
@@ -85,9 +96,9 @@ const About = () => {
             {interests.map((interest, index) => (
               <div 
                 key={index} 
-                className="text-center group hover-lift bg-gray-50 rounded-xl p-6 transition-all duration-200 hover:shadow-md"
+                className="text-center group floating-card bg-white rounded-xl p-6 border border-gray-100 shadow-sm"
               >
-                <div className="w-16 h-16 bg-matcha text-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                <div className={`w-16 h-16 ${interest.color} text-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200`}>
                   <interest.icon size={24} />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">
