@@ -1,42 +1,6 @@
-
-import { Heart, Users, Coffee, Lightbulb, Target, Sparkles } from "lucide-react";
+import FeatureGrid from "./FeatureGrid";
 
 const About = () => {
-  const values = [
-    {
-      icon: Users,
-      title: "Community First",
-      description: "I believe the best products emerge from understanding and nurturing authentic human connections."
-    },
-    {
-      icon: Heart,
-      title: "Empathy-Driven",
-      description: "Every feature decision starts with deep user empathy and real-world problem solving."
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation Mindset", 
-      description: "Constantly exploring how technology can facilitate meaningful offline interactions."
-    }
-  ];
-
-  const interests = [
-    {
-      icon: Coffee,
-      title: "Matcha Obsessed",
-      description: "Always on the hunt for the perfect matcha latte and cozy coffee shops for deep work sessions."
-    },
-    {
-      icon: Target,
-      title: "Real-Life Connections",
-      description: "Fascinated by startups like Beli and Series that bridge digital and physical community experiences."
-    },
-    {
-      icon: Sparkles,
-      title: "Product Craft",
-      description: "Passionate about the intersection of beautiful design, seamless UX, and meaningful user outcomes."
-    }
-  ];
 
   return (
     <section id="about" className="py-20 bg-cream relative overflow-hidden">
@@ -64,7 +28,7 @@ const About = () => {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               I'm a product manager who believes the best digital experiences 
-              inspire real-world connections and community building.
+              inspire IRL connections and community.
             </p>
           </div>
 
@@ -79,70 +43,39 @@ const About = () => {
               />
             </div>
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-gray-900">
-                Building products that matter
-              </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                As a product manager based in New York City, I specialize in creating digital experiences 
-                that foster authentic human connections. My approach combines data-driven decision making 
-                with deep empathy for user needs.
+                Right now, I’m a PM at Capital One, working on digital products for 
+                small business owners. I focus on making our experiences feel intuitive and seamless
+                by deep-diving on customer behavior and building to solve pain points.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                I'm particularly drawn to startups that facilitate real-life interactions - companies 
-                like Beli, which connects people through local experiences, and Series, which builds 
-                community through shared interests and activities.
+                Outside of work, I’m curious about products that blur the line between 
+                online and offline. I'm especially interested in AI-powered solutions that help people discover 
+                new places, form genuine communities, or just generally lead better lives.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                When I'm not crafting product strategies, you'll find me exploring NYC's matcha scene, 
-                attending community events, or brainstorming how technology can bring people together 
-                in meaningful ways.
+              <p className="text-lg text-gray-700 leading-relaxed mb-1">
+                When I’m not doing product stuff, you can find me:
+                <ul className="text-lg text-gray-700 leading-relaxed list-disc list-inside mt-1">
+                  <li>learning a new exercise in the gym</li>
+                  <li>planning food-based travel itineraries</li>
+                  <li>browsing Uniqlo's online sales</li>
+                  <li>trying and ranking every matcha latte in NYC</li>
+                </ul>
               </p>
+
+
             </div>
           </div>
 
-          {/* Values section */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              What Drives Me
-            </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {values.map((value, index) => (
-                <div key={index} className="floating-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
-                  <div className="w-16 h-16 bg-gradient-matcha rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <value.icon size={36} className="text-[#a47148]" />
-                  </div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4 text-center">
-                    {value.title}
-                  </h4>
-                  <p className="text-gray-600 text-center leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Interests section */}
+          {/* Values Section */}
           <div>
-            <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              Beyond Product
+            <h3 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">           
+              Inside My Brain
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {interests.map((interest, index) => (
-                <div key={index} className="floating-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group">
-                  <div className="w-16 h-16 bg-gradient-brown rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <interest.icon size={36} className="text-[#a47148]" />
-                  </div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4 text-center">
-                    {interest.title}
-                  </h4>
-                  <p className="text-gray-600 text-center leading-relaxed">
-                    {interest.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FeatureGrid />
           </div>
+          
+
         </div>
       </div>
     </section>

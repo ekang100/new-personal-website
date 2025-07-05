@@ -78,24 +78,6 @@ const Contact = () => {
             </a>
           ))}
           </div>
-
-          {/* CTA */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h3 className="text-2xl font-semibold mb-4">
-              Working on something interesting?
-            </h3>
-            <p className="text-white/90 mb-6">
-              I'm particularly interested in companies focused on real-life interactions, 
-              community-driven platforms, and products that bring people together like Beli and Series.
-            </p>
-            <a
-              href="mailto:ekangster1@gmail.com"
-              className="inline-flex items-center gap-2 bg-white text-brown px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200"
-            >
-              <Mail size={18} />
-              Grab a matcha with me
-            </a>
-          </div>
         </div>
       </div>
       <div className="absolute inset-0 pointer-events-none z-0">

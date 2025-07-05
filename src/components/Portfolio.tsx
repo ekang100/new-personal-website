@@ -1,10 +1,10 @@
 
-import { ExternalLink, Github, Lightbulb, Users, Zap } from "lucide-react";
+import { ExternalLink, Github, Lightbulb, Users, Zap, Mail } from "lucide-react";
 
 const Portfolio = () => {
   const projects = [
     {
-      title: "Community Connect",
+      title: "PLACEHOLDER",
       description: "A platform that bridges digital and physical interactions, helping people build meaningful connections in their local communities.",
       category: "Community Building",
       technologies: ["React", "Node.js", "MongoDB"],
@@ -17,7 +17,7 @@ const Portfolio = () => {
       }
     },
     {
-      title: "Matcha Finder",
+      title: "PLACEHOLDER",
       description: "Mobile-first web app that helps matcha enthusiasts discover the best local tea shops and connect with fellow matcha lovers.",
       category: "Product Design",
       technologies: ["React Native", "Firebase", "Maps API"],
@@ -30,16 +30,16 @@ const Portfolio = () => {
       }
     },
     {
-      title: "Real Connect",
-      description: "Startup concept focused on reducing digital noise and promoting authentic in-person interactions through smart event matching.",
+      title: "BabyBumps Surrogacy",
+      description: "Startup focused on high-end surrogacy matchmaking, connecting top tier surrogates with future parents.",
       category: "Startup Strategy",
       technologies: ["Figma", "User Research", "Product Strategy"],
-      impact: "Validated with 100+ user interviews",
+      impact: "Built and validated with 6+ user interviews",
       gradient: "gradient-brown",
       icon: Zap,
       links: {
-        live: "#",
-        github: "#"
+        live: "https://helix-supply-e76.notion.site/BabyBumps-227b8db40ea98090a129d1f19c42f16f",
+        github: "https://github.com/ekang100/BabyBumps"
       }
     }
   ];
@@ -57,7 +57,7 @@ const Portfolio = () => {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Product Portfolio
+              Project Portfolio
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               A collection of projects that showcase my passion for building products 
@@ -135,25 +135,26 @@ const Portfolio = () => {
               </div>
             ))}
           </div>
-
-          {/* Portfolio CTA */}
-          <div className="text-center mt-16">
-            <div className="inline-block bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                Interested in my work?
-              </h3>
-              <p className="text-gray-600 mb-6 max-w-2xl">
-                I'm always excited to discuss product opportunities, share insights about 
-                community building, or collaborate on projects that bring people together.
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-brown text-white px-6 py-3 rounded-full font-semibold hover:bg-brown-dark transition-colors duration-200"
-              >
-                Let's collaborate
-              </a>
-            </div>
+          <div className="mt-16 flex justify-center">
+          <div className="bg-brown-light backdrop-blur-md rounded-2xl p-8 border border-white/30 max-w-2xl text-center">
+            <h3 className="text-2xl font-semibold text-white mb-4">
+              Working on something interesting?
+            </h3>
+            <p className="text-white/90 mb-6">
+              I'm particularly interested in companies and people focused on real-life interactions, 
+              community-driven platforms, and products that bring people together.
+            </p>
+            <a
+              href="mailto:ekangster1@gmail.com"
+              className="inline-flex items-center gap-2 bg-white text-brown px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200"
+            >
+              <Mail size={18} />
+              Grab a matcha with me
+            </a>
           </div>
+        </div>
+
+
         </div>
       </div>
     </section>

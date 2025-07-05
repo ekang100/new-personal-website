@@ -88,7 +88,7 @@ const Hero = () => {
           </div>
 
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-300">
-            I craft meaningful products that bring people together in real life, 
+            I like building things that help people, 
             fueled by matcha and inspired by authentic human connections.
           </p>
 
