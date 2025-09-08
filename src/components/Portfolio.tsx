@@ -31,7 +31,7 @@ const Portfolio = () => {
     },
     {
       title: "BabyBumps Surrogacy",
-      description: "Startup focused on high-end surrogacy matchmaking, connecting top tier surrogates with future parents.",
+      description: "Startup focused on high-end surrogacy matchmaking, connecting top tier surrogates with future parents and acting as a concierge throughout the process.",
       category: "Startup Strategy",
       technologies: ["Figma", "User Research", "Product Strategy"],
       impact: "Built and validated with 6+ user interviews",
