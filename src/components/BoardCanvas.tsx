@@ -26,9 +26,12 @@ type LabelFrame = BaseFrame & {
 type CardFrame = BaseFrame & {
   variant?: "card";
   content: React.ReactNode;
-  size?: "sm" | "md" | "lg" | "xl";   // <— NEW
-  noScroll?: boolean;                 // <— NEW
+  size?: "sm" | "md" | "lg" | "xl";
+  noScroll?: boolean;
+  /** visual preset for special cards */
+  theme?: "default" | "note";
 };
+
 
 type Frame = LabelFrame | CardFrame;
 
@@ -56,34 +59,38 @@ const frames = [
   },
   {
     id: "about",
-    title: "About me",
+    title: "Hi! I’m Ellie.",
     pos: { topPct: 9, leftPct: 15 },
     variant: "card",
     size: "lg",
     noScroll: true,
+    theme: "default",
     content: (
       <div className="space-y-3 text-white/85 text-sm leading-relaxed">
         <p>
-          Hi, I’m Ellie — a product manager who builds AI-powered tools that feel
-          simple, helpful, and a little magical. I move fast from sketch → prototype
-          → shipped feature, and I care a lot about the human side of every system.
+          I'm a product manager who believes that the best digital experiences inspire IRL connections and community. Right now, I’m a PM at Capital One, working on digital products for 
+                small business owners. I focus on making our experiences feel intuitive and seamless
+                by deep-diving on customer behavior and building to solve pain points.
         </p>
         <p>
-          My sweet spot is zero-to-one: defining crisp problems, prototyping with
-          React/TypeScript, and proving value with real users and real metrics.
+          Outside of work, I’m curious about products that blur the line between 
+                online and offline. I'm especially interested in AI-powered solutions that help people discover 
+                new places, form genuine communities, or just generally lead better lives.
+        </p>
+
+        <p>
+          When I’m not doing product stuff, you can find me:
         </p>
 
         <ul className="list-disc ml-5 space-y-1">
-          <li>Rapid prototyping in React/TS + Tailwind + Supabase; ship scrappy → stable</li>
-          <li>Designing agentic UX: clear handoffs, human-in-the-loop, safe defaults</li>
-          <li>Product analytics & growth loops: activation, aha, retention, compounding value</li>
-          <li>User research & storytelling that aligns eng/design/GTMs around outcomes</li>
-          <li>Roadmapping that balances ambition with shipping momentum</li>
+          <li>learning a new exercise in the gym</li>
+          <li>planning food-based travel itineraries</li>
+          <li>browsing Uniqlo's online sales</li>
+          <li>trying and ranking every matcha latte in NYC</li>
         </ul>
 
         <p>
-          Lately I’m exploring agents, multiplayer collaboration, and interfaces that
-          turn complex decisions into confident actions. If you’ve got an ambitious
+          Lately I’m exploring vibe-coding, productivity software, and the future of dating apps. If you’ve got an ambitious
           problem or a weird idea, let’s chat.
         </p>
       </div>
@@ -93,70 +100,121 @@ const frames = [
   /** Projects banner (large label above the project cards) */
   {
     id: "projects",
-    title: "Projects",
+    title: "What I've worked on",
     pos: { topPct: 20, leftPct: 50 },
     variant: "label",
   },
+{
+  id: "projects-note",
+  title: "",                       // no title bar for the note
+  pos: { topPct: 30, leftPct: -15 },// to the side of the Projects label
+  variant: "card",
+  size: "sm",
+  noScroll: true,
+  theme: "note",
+  content: (
+    <div className="relative space-y-2">
+      <p className="text-[13px] leading-snug">
+        This site is still under construction as I make it more interactive and fun.
+      </p>
+      <p className="text-[13px] leading-snug">
+        In the meantime, enjoy dragging the Frames around, reading up on my work, and please contact me at{" "}
+        <a href="mailto:ekangster1@gmail.com" className="underline">ekangster1@gmail.com</a>{" "}
+        or connect on{" "}
+        <a href="https://www.linkedin.com/in/elianne-kang/" target="_blank" rel="noreferrer" className="underline">
+          LinkedIn
+        </a> :)
+      </p>
+    </div>
+  ),
+},
 
   /** Project cards row */
   {
-    id: "atlas",
-    title: "Atlas Agents",
-    pos: { topPct: 26, leftPct: 0 },
+    id: "baby",
+    title: "BabyBumps",
+    pos: { topPct: 38, leftPct: 28 },
     variant: "card",
     size: "sm",
     noScroll: true,
+    theme: "default",
     content: (
       <div className="text-sm text-white/85 space-y-2">
         <div className="flex items-start justify-between">
-          <h4 className="text-white font-medium">Atlas Agents</h4>
+          <h4 className="text-white font-medium">Surrogacy Startup</h4>
           <div className="flex gap-1 text-[11px]">
-            <span className="rounded bg-white/10 px-1.5 py-0.5">React</span>
-            <span className="rounded bg-white/10 px-1.5 py-0.5">Agentic UX</span>
-            <span className="rounded bg-white/10 px-1.5 py-0.5">Growth</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Figma</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">User Reserach</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Strategy</span>
           </div>
         </div>
 
         <p className="text-white/80">
-          Workflow agent that auto-drafts customer responses and routes approvals;
-          reduced average handling time by 28%.
+          0 -> 1 strategy, design, and development for a mobile app matching surrogates to intended parents and a web platform for all things surrogacy
         </p>
 
         <div className="flex gap-2 pt-1">
-          <a className="underline" href="https://...">Demo</a>
-          <a className="underline" href="https://...">Case study</a>
-          <a className="underline" href="https://...">GitHub</a>
+          <a className="underline" href="https://helix-supply-e76.notion.site/BabyBumps-227b8db40ea98090a129d1f19c42f16f">Docs</a>
+          <a className="underline" href="https://github.com/ekang100/BabyBumps">GitHub</a>
+          <a className="underline" href="https://www.figma.com/design/a9OVE7zwCXPzr0aRpPiRGy/BabyBumps?node-id=0-1&t=xDPfuAo2D7mbzPke-1">Figma</a>
         </div>
       </div>
     ),
   },
   {
-    id: "connections",
-    title: "Competitive Connections",
-    pos: { topPct: 26, leftPct: 100 },
+    id: "proxy",
+    title: "Proxy",
+    pos: { topPct: 27, leftPct: 28 },
     variant: "card",
     size: "sm",
     noScroll: true,
+    theme: "default",
     content: (
       <div className="text-sm text-white/85 space-y-2">
         <div className="flex items-start justify-between">
-          <h4 className="text-white font-medium">Competitive Connections</h4>
+          <h4 className="text-white font-medium">Dating App</h4>
           <div className="flex gap-1 text-[11px]">
-            <span className="rounded bg-white/10 px-1.5 py-0.5">Next.js</span>
-            <span className="rounded bg-white/10 px-1.5 py-0.5">LLM</span>
-            <span className="rounded bg-white/10 px-1.5 py-0.5">Research</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Figma</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Growth</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Startup</span>
+          </div>
+        </div>
+        <p className="text-white/80">
+          Dating app concept that lets your friends and family (with the help of AI) swipe, chat, and set you up with people they think you'd like
+        </p>
+        <div className="flex gap-2 pt-1">
+          <a className="underline" href="https://www.figma.com/design/RIpTc2NMfVlEE4UncVbqmp/Proxy?node-id=261-222&p=f&t=MnP0xuLukFQwqKvK-0">Figma</a>
+        </div>
+      </div>
+      ),
+
+
+  },
+  {
+    id: "connections",
+    title: "Competitive Connections",
+    pos: { topPct: 38, leftPct: 72 },
+    variant: "card",
+    size: "sm",
+    noScroll: true,
+    theme: "default",
+    content: (
+      <div className="text-sm text-white/85 space-y-2">
+        <div className="flex items-start justify-between">
+          <h4 className="text-white font-medium">I'm washed now</h4>
+          <div className="flex gap-1 text-[11px]">
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Vue</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">Socket.io</span>
+            <span className="rounded bg-white/10 px-1.5 py-0.5">MongoDB</span>
           </div>
         </div>
 
         <p className="text-white/80">
-          Competitive intel tool that clusters updates, maps feature deltas, and drafts positioning
-          notes for PMs and Sales.
+          Real-time, multiplayer version of NYT Connections game, which is thankfully not behind a paywall (yet)
         </p>
 
         <div className="flex gap-2 pt-1">
-          <a className="underline" href="https://...">Demo</a>
-          <a className="underline" href="https://...">Write-up</a>
-          <a className="underline" href="https://...">GitHub</a>
+          <a className="underline" href="https://github.com/ekang100/Competitive-Connections">GitHub</a>
         </div>
       </div>
     ),
@@ -164,30 +222,34 @@ const frames = [
   {
     id: "tastetwin",
     title: "Taste Twin",
-    pos: { topPct: 26, leftPct: 50 },
+    pos: { topPct: 27, leftPct: 72 },
     variant: "card",
     size: "sm",
     noScroll: true,
+    theme: "default",
     content: (
       <div className="text-sm text-white/85 space-y-2">
         <div className="flex items-start justify-between">
-          <h4 className="text-white font-medium">Taste Twin</h4>
+          <h4 className="text-white font-medium">Better than Beli</h4>
           <div className="flex gap-1 text-[11px]">
+            <span className="rounded bg-white/10 px-1.5 py-0.5">ML</span>
             <span className="rounded bg-white/10 px-1.5 py-0.5">Data</span>
-            <span className="rounded bg-white/10 px-1.5 py-0.5">Recommenders</span>
             <span className="rounded bg-white/10 px-1.5 py-0.5">UX</span>
           </div>
         </div>
 
         <p className="text-white/80">
-          Flavor-profile matcher that recommends restaurants/products based on shared “taste twins”,
-          improving first-session conversion.
+          Finds your "taste twin" based on restaurant ranking data (star ranking, cuisine, sentiment) and will recommend new foods and restaurants.
+          Why? Because Beli has a compability score but nobody knows how it works.
+        </p>
+
+        <p className="text-white/80">
+          Also working on some mockups for UI/UX pain points as a Beli user      
         </p>
 
         <div className="flex gap-2 pt-1">
-          <a className="underline" href="https://...">Demo</a>
-          <a className="underline" href="https://...">Write-up</a>
-          <a className="underline" href="https://...">GitHub</a>
+          <a className="underline" href="https://github.com/ekang100/taste-twin">GitHub</a>
+          <a className="underline" href="https://www.figma.com/design/HwpHCQMBunmQiJKsEhnmqC/Beli-Brain-Dump?node-id=0-1&t=KGMCiOxP1FlrRDOQ-1">Figma</a>
         </div>
       </div>
     ),
@@ -200,35 +262,54 @@ const frames = [
     variant: "card",
     size: "lg",
     noScroll: true,
+    theme: "default",
     content: (
-      <div className="text-sm text-white/85 space-y-3">
-        <div>
-          <h4 className="text-white/90 font-medium mb-1">Skills</h4>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 gap-x-6">
-            <li><span className="text-white/70">Frontend</span>: React, TypeScript, Next.js, Tailwind, shadcn/ui</li>
-            <li><span className="text-white/70">Prototyping</span>: rapid UX flows, agent demos, prompt design</li>
-            <li><span className="text-white/70">Backend</span>: Node, Supabase/Postgres, REST</li>
-            <li><span className="text-white/70">Design</span>: Figma, component systems, interaction design</li>
-            <li><span className="text-white/70">Product</span>: discovery, PRDs, KPI trees, experiment design</li>
-            <li><span className="text-white/70">Growth</span>: onboarding, activation, retention, lifecycle messaging</li>
-            <li><span className="text-white/70">Analytics</span>: funnels, cohorts, A/B testing, Mixpanel/GA</li>
-            <li><span className="text-white/70">Collab</span>: clear specs, tight feedback loops, narrative docs</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-white/90 font-medium mb-1">Interests</h4>
-          <ul className="list-disc ml-5 space-y-1">
-            <li>Agentic UX & human-in-the-loop workflows that feel trustworthy</li>
-            <li>Personal knowledge tools and creative tooling for teams</li>
-            <li>Onboarding “wow” moments and compounding retention loops</li>
-            <li>Multimodal interfaces (text + voice + canvas) for faster decisions</li>
-            <li>Local-first & privacy-by-default collaboration</li>
-            <li>Products that create real-world connection and community</li>
-          </ul>
+  <div className="text-sm text-white/85 space-y-4">
+    {/* Upper: two columns */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+      {/* Left: hard skills */}
+      <div className="space-y-1">
+        <h4 className="text-white/90 font-medium mb-1">Technical skills</h4>
+        <div className="space-y-1">
+          <div><span className="text-white/70">Frontend</span>: React, Next.js, Vue, TypeScript, HTML/CSS, Figma</div>
+          <div><span className="text-white/70">Backend & APIs</span>: Node.js, Express, Flask, REST</div>
+          <div><span className="text-white/70">Data & ML</span>: Python (pandas, NumPy, scikit-learn), PyTorch/TensorFlow, NLP, Jupyter, R, SQL/Snowflake</div>
+          <div><span className="text-white/70">Infra & DevOps</span>: Git, Docker, Kubernetes, CI/CD</div>
+          <div><span className="text-white/70">Product</span>: Discovery, user interviews, PRDs, roadmaps, Jira/Agile, prototyping</div>
+          <div><span className="text-white/70">Analytics & Growth</span>: Tableau, funnels, A/B tests</div>
         </div>
       </div>
-    ),
+
+      {/* Right: soft skills (same formatted list) */}
+      <div className="space-y-1">
+        <h4 className="text-white/90 font-medium mb-1">Soft skills</h4>
+        <div className="space-y-1">
+          <div><span className="text-white/70">Communication</span>: clear written & verbal; narrative docs; presentation storytelling</div>
+          <div><span className="text-white/70">Leadership</span>: team building; research synthesis, alignment, decisions under ambiguity</div>
+          <div><span className="text-white/70">X-functional leadership</span>: partner w/ design & eng; legal, risk compliance, other partners</div>
+          <div><span className="text-white/70">Prioritization</span>: roadmap trade-offs; bias to ship quickly</div>
+          <div><span className="text-white/70">Experimentation</span>: define success metrics; read results; iterate</div>
+        </div>
+      </div>
+    </div>
+
+    {/* Lower: interests as paragraph */}
+    <div>
+      <h4 className="text-white/90 font-medium mb-1">Interests</h4>
+      <div className="space-y-3 text-white/85 text-sm leading-relaxed">
+        <p className="text-white/75">
+          I’m excited about anything at the intersection of AI and people, whether that's a tool to improve productivity, an algorithm that 
+          works better than a dating app, or a second brain that helps me learn new things. I love people and thinking about 
+          how technology can help us connect in more meaningful ways. 
+        </p>
+
+        <p>
+          Let's also talk about Duke basketball, Japan, and moving from the suburbs to the greatest(?) city in the world.
+        </p>
+      </div>
+    </div>
+  </div>
+),
   },
 ] as const;
 
@@ -288,6 +369,30 @@ export function BoardCanvas() {
   function getViewportEl(): HTMLElement | null {
     return wrapperRef.current?.instance?.contentComponent?.parentElement ?? null;
   }
+
+  function resetBoard() {
+    // clear focus + route
+    clearSelection();
+    draggingId.current = null;
+    setIsDragging(false);
+
+    // reset every frame back to its initial pos from `frames`
+    setPositions(() =>
+      frames.reduce((acc, f) => {
+        acc[f.id] = { ...f.pos };
+        return acc;
+      }, {} as Record<FrameId, { topPct: number; leftPct: number }>)
+    );
+
+    // wait for DOM to reflow, then fit all frames to the default view
+    // (uses your more-zoomed-out margin)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        fitAllFrames(FIT_MARGIN_INITIAL);
+      });
+    });
+  }
+
 
   function vpToContent(clientX: number, clientY: number) {
     const viewport = getViewportEl();
@@ -491,13 +596,12 @@ useEffect(() => {
           </button>
           <button
             className="flex items-center gap-2 rounded bg-white/10 px-2 py-1 text-sm"
-            onClick={() => {
-              clearSelection();
-              wrapperRef.current?.resetTransform(300);
-            }}
+            onClick={resetBoard}
           >
             <RotateCcw className="h-4 w-4" /> Reset
           </button>
+
+
         </div>
       </div>
 
@@ -587,12 +691,8 @@ useEffect(() => {
 
                     // 🔸 CARD: safe to read card-only props now (size, content, noScroll)
                     const sizeClass =
-                    f.size === "xl"
-                      ? "w-[760px] h-[460px] md:w-[880px] md:h-[520px] lg:w-[960px] lg:h-[560px]"
-                      : f.size === "lg"
+                      f.size === "lg"
                       ? "w-[640px] h-[360px] md:w-[720px] md:h-[420px] lg:w-[800px] lg:h-[460px]"
-                      : f.size === "md"
-                      ? "w-[520px] h-[300px] md:w-[560px] md:h-[320px] lg:w-[640px] lg:h-[360px]"
                       : /* sm (default) */ 
                         "w-[340px] h-[220px] md:w-[420px] md:h-[260px] lg:w-[520px] lg:h-[300px]";
 
@@ -610,11 +710,16 @@ useEffect(() => {
                         }}
                         className={cn(
                           "absolute select-none touch-none",
-                          sizeClass, // ✅ only one size set
-                          "rounded-2xl border border-white/10 bg-white/5 text-white",
-                          "shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset] backdrop-blur p-5",
+                          sizeClass,
+                          f.theme === "note"
+                            ? "rounded-xl bg-amber-200/95 text-black ring-1 ring-amber-300/60 shadow-[0_8px_22px_rgba(0,0,0,0.35)] rotate-[-2deg] p-4"
+                            : "rounded-2xl border border-white/10 bg-white/5 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset] backdrop-blur p-5",
                           isDragging ? "cursor-grabbing" : "cursor-grab"
+                          
                         )}
+
+                        
+
                         onPointerDown={(e) => {
                           if ((e as unknown as PointerEvent).button !== 0) return;
                           const target = e.target as HTMLElement;
@@ -629,21 +734,24 @@ useEffect(() => {
                           setIsDragging(true);
                         }}
                       >
-                        <header className="mb-3 flex items-center justify-between">
-                          <h3 className="text-white/90 font-medium">{f.title}</h3>
-                          <a
-                            href={`#/frame/${f.id}`}
-                            className="text-xs text-white/60 underline"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              focusFrame(f.id as FrameId, 300);
-                              useBoardStore.getState().setActiveFrame(f.id as any);
-                              window.location.hash = `#/frame/${f.id}`;
-                            }}
-                          >
-                            Focus
-                          </a>
-                        </header>
+                        {f.title && f.theme !== "note" && (
+                          <header className="mb-3 flex items-center justify-between">
+                            <h3 className="text-white/90 font-medium">{f.title}</h3>
+                            <a
+                              href={`#/frame/${f.id}`}
+                              className="text-xs text-white/60 underline"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                focusFrame(f.id as FrameId, 300);
+                                useBoardStore.getState().setActiveFrame(f.id as any);
+                                window.location.hash = `#/frame/${f.id}`;
+                              }}
+                            >
+                              Focus
+                            </a>
+                          </header>
+                        )}
+
 
                         {/* scroll only when not flagged */}
                         <div className={cn("text-sm", f.noScroll ? "" : "overflow-auto h-[calc(100%-2rem)]")}>

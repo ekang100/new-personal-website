@@ -7,8 +7,10 @@ export type FrameId =
   | "skills title"
   | "projects"     // banner
   | "skills"
-  | "atlas"
+  | "baby"
+  | "proxy"
   | "connections"
+  | "projects-note"
   | "tastetwin";
 
 type BoardState = {
