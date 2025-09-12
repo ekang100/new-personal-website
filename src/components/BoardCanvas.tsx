@@ -68,8 +68,7 @@ const frames = [
     content: (
       <div className="space-y-3 text-white/85 text-sm leading-relaxed">
         <p>
-          I'm a product manager who believes that the best digital experiences inspire IRL connections and community. Right now, I’m a PM at Capital One, working on digital products for 
-                small business owners. I focus on making our experiences feel intuitive and seamless
+          I'm a product manager who believes that the best digital experiences inspire IRL connections and community. Right now, I’m a PM at Capital One, working on the multi-factor authentication experience. I focus on making our experiences feel intuitive and seamless
                 by deep-diving on customer behavior and building to solve pain points.
         </p>
         <p>
