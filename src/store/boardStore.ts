@@ -1,11 +1,21 @@
 import { create } from "zustand";
 
-export type FrameId = "about" | "projects" | "skills";
+// Include ALL frame ids you use anywhere in the app (banner + project cards)
+export type FrameId =
+  | "about"
+  | "about title"
+  | "skills title"
+  | "projects"     // banner
+  | "skills"
+  | "atlas"
+  | "connections"
+  | "tastetwin";
 
 type BoardState = {
   activeFrame: FrameId | null;
   setActiveFrame: (id: FrameId | null) => void;
-  zoom: number;              // 0.25 – 3
+  // 0.25 – 3
+  zoom: number;
   setZoom: (z: number) => void;
   pan: { x: number; y: number };
   setPan: (p: { x: number; y: number }) => void;
