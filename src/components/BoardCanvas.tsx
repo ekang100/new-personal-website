@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   TransformComponent,
   TransformWrapper,
@@ -34,6 +34,23 @@ export function BoardCanvas() {
 
   const activeFrame = useMemo(() => frames.find(f => f.id === active), [active]);
 
+  const [frameScale, setFrameScale] = useState(1);
+
+  // ✅ NEW: responsive frame scale based on viewport
+  useEffect(() => {
+    const update = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      // scale down smoothly; clamp to keep readable
+      const s = Math.min(vw / 1280, vh / 800);
+      setFrameScale(Math.max(0.35, Math.min(1, s)));
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  // ✅ END NEW
+
   // ✅ Use the correct viewport element (visible wrapper)
   function getViewportEl(): HTMLElement | null {
     return wrapperRef.current?.instance?.contentComponent?.parentElement ?? null;
@@ -52,6 +69,7 @@ export function BoardCanvas() {
 
     // element center in viewport pixels (relative to viewport)
     const centerVx = r.left - vpRect.left + r.width / 2;
+    // @ts-ignore
     const centerVy = r.top  - vpRect.top  + r.height / 2;
 
     // convert viewport px -> content coords using CURRENT transform
@@ -203,7 +221,6 @@ export function BoardCanvas() {
           viewport.style.backgroundPosition = `${state.positionX}px ${state.positionY}px`;
         }}
       >
-
         {({ setTransform }) => {
           controlsRef.current.setTransform = setTransform;
 
@@ -222,7 +239,13 @@ export function BoardCanvas() {
                     key={f.id}
                     id={`frame-${f.id}`}
                     data-board-frame
-                    style={{ top: `${f.pos.topPct}%`, left: `${f.pos.leftPct}%` }}
+                    style={{
+                      top: `${f.pos.topPct}%`,
+                      left: `${f.pos.leftPct}%`,
+                      // ✅ apply responsive scale (keeps focus/fit math correct)
+                      transform: `translate(-50%, -50%) scale(${frameScale})`,
+                      transformOrigin: "center",
+                    }}
                     className={cn(
                       "absolute -translate-x-1/2 -translate-y-1/2",
                       "w-[340px] h-[220px] md:w-[420px] md:h-[260px] lg:w-[520px] lg:h-[300px]",
