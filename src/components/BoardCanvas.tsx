@@ -150,8 +150,9 @@ const frames = [
         </div>
 
         <p className="text-white/80">
-          0 -> 1 strategy, design, and development for a mobile app matching surrogates to intended parents and a web platform for all things surrogacy
+          0 → 1 strategy, design, and development for a mobile app matching surrogates to intended parents and a web platform for all things surrogacy
         </p>
+
         <p className="text-white/80">
           Learned about the surrogacy process, how to work with founders, and led my first team of engineers and designers
         </p>
@@ -692,7 +693,7 @@ return (
       {/* === Bottom toolbar image (small) === */}
       <div className="pointer-events-none absolute inset-x-0 bottom-3 z-30 flex justify-center">
         <img
-          src="/bottom.png"
+          src="bottom.png"
           alt="Bottom toolbar"
           className="pointer-events-none select-none h-8 md:h-9 lg:h-10 object-contain"
           draggable={false}
