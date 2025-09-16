@@ -83,10 +83,10 @@ const frames = [
         </p>
 
         <ul className="list-disc ml-5 space-y-1">
-          <li>learning a new exercise in the gym</li>
-          <li>planning food-based travel itineraries</li>
-          <li>browsing Uniqlo's online sales</li>
-          <li>trying and ranking every matcha latte in NYC</li>
+          <li>frolicking around NYC (walks, popups, eating)</li>
+          <li>planning my next mini trip</li>
+          <li>trying to improve Beli</li>
+          <li>ranking every matcha latte i come across</li>
         </ul>
 
         <p>
@@ -152,6 +152,9 @@ const frames = [
         <p className="text-white/80">
           0 -> 1 strategy, design, and development for a mobile app matching surrogates to intended parents and a web platform for all things surrogacy
         </p>
+        <p className="text-white/80">
+          Learned about the surrogacy process, how to work with founders, and led my first team of engineers and designers
+        </p>
 
         <div className="flex gap-2 pt-1">
           <a className="underline" href="https://helix-supply-e76.notion.site/BabyBumps-227b8db40ea98090a129d1f19c42f16f">Docs</a>
@@ -181,6 +184,9 @@ const frames = [
         </div>
         <p className="text-white/80">
           Dating app concept that lets your friends and family (with the help of AI) swipe, chat, and set you up with people they think you'd like
+        </p>
+        <p className="text-white/80">
+          Designed the end-to-end user experience, built a clickable prototype in Figma, worked on growth strategy
         </p>
         <div className="flex gap-2 pt-1">
           <a className="underline" href="https://www.figma.com/design/RIpTc2NMfVlEE4UncVbqmp/Proxy?node-id=261-222&p=f&t=MnP0xuLukFQwqKvK-0">Figma</a>
@@ -212,6 +218,9 @@ const frames = [
         <p className="text-white/80">
           Real-time, multiplayer version of NYT Connections game, which is thankfully not behind a paywall (yet)
         </p>
+        <p className="text-white/80">
+          Built the full stack (Vue frontend, Node.js backend with Socket.io, MongoDB) and deployed on Kubernetes. Learned about testing, CI/CD, RBAC, and authentication
+        </p>
 
         <div className="flex gap-2 pt-1">
           <a className="underline" href="https://github.com/ekang100/Competitive-Connections">GitHub</a>
@@ -241,6 +250,9 @@ const frames = [
         <p className="text-white/80">
           Finds your "taste twin" based on restaurant ranking data (star ranking, cuisine, sentiment) and will recommend new foods and restaurants.
           Why? Because Beli has a compability score but nobody knows how it works.
+        </p>
+        <p>
+          Messing around with my machine learning knowledge
         </p>
 
         <p className="text-white/80">
@@ -385,19 +397,36 @@ export function BoardCanvas() {
 
   const activeFrame = useMemo(() => frames.find((f) => f.id === active), [active]);
 
-  // responsive frame scale
+  
+  // responsive frame scale (based on the actual canvas viewport, not the full window)
   const [frameScale, setFrameScale] = useState(1);
   useEffect(() => {
-    const update = () => {
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
+    const compute = () => {
+      const vp = getViewportEl();
+      const vw = vp?.clientWidth ?? window.innerWidth;
+      const vh = vp?.clientHeight ?? window.innerHeight;
       const s = Math.min(vw / 1280, vh / 800);
       setFrameScale(Math.max(0.35, Math.min(1, s)));
     };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    compute();
+
+    // react to window resizes
+    window.addEventListener("resize", compute);
+
+    // react to sidebar open/close or layout shifts
+    let ro: ResizeObserver | undefined;
+    const vp = getViewportEl();
+    if (vp && 'ResizeObserver' in window) {
+      ro = new ResizeObserver(() => compute());
+      ro.observe(vp);
+    }
+
+    return () => {
+      window.removeEventListener("resize", compute);
+      ro?.disconnect();
+    };
   }, []);
+
 
   // === Draggable frames ===
   const [positions, setPositions] = useState<

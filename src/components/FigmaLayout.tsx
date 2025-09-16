@@ -12,7 +12,7 @@ export default function FigmaLayout() {
     <div className="h-screen w-screen text-white bg-[#1E1E1E] overflow-hidden">
       <header className="relative h-10 border-b border-white/10 bg-[#232323] px-3 flex items-center text-xs tracking-wide text-white/70">
         {/* Left hamburger (mobile) */}
-        <div className="md:hidden mr-2">
+        <div className="xl:hidden mr-2">
           <Sheet>
             <SheetTrigger className="inline-flex items-center gap-1 rounded bg-white/10 px-2 py-1">
               <PanelLeft className="h-4 w-4" />
@@ -30,7 +30,7 @@ export default function FigmaLayout() {
         <span className="text-white/40">Drag to pan • Touchpad to zoom</span>
 
         {/* Right hamburger (mobile) */}
-        <div className="ml-auto md:hidden">
+        <div className="ml-auto xl:hidden">
           <Sheet>
             <SheetTrigger className="inline-flex items-center gap-1 rounded bg-white/10 px-2 py-1">
               <PanelRight className="h-4 w-4" />
@@ -48,10 +48,10 @@ export default function FigmaLayout() {
       {/* Content row */}
       <div className="flex h-[calc(100vh-40px)] min-w-0">
         {/* Left sidebar (desktop only) */}
-        {!isMobile && <LayersSidebar />}
+        <div className="hidden xl:block"><LayersSidebar /></div>
 
         {/* Canvas area; reserve space for right panel only on desktop */}
-        <div className="relative flex-1 min-w-0 md:pr-80 md:overflow-hidden overflow-y-auto">
+        <div className="relative flex-1 min-w-0 xl:pr-80 md:overflow-hidden overflow-y-auto">
           <BoardCanvas />
         </div>
       </div>

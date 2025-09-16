@@ -101,7 +101,7 @@ export function RightSidebarPanel() {
 /** Desktop-only fixed sidebar — same width as left (w-72) */
 export function RightSidebar() {
   return (
-    <aside className="fixed top-10 bottom-0 right-0 z-30 w-72 pointer-events-none hidden md:block">
+    <aside className="fixed top-10 bottom-0 right-0 z-30 w-72 pointer-events-none hidden xl:block">
       <RightSidebarPanel />
     </aside>
   );
