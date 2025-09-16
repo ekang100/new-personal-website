@@ -5,6 +5,7 @@ import {
   ReactZoomPanPinchRef,
 } from "react-zoom-pan-pinch";
 import { useBoardStore } from "@/store/boardStore";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import {
   ZoomIn,
@@ -312,11 +313,58 @@ const frames = [
   },
 ] as const;
 
+function StackCard({ frame }: { frame: CardFrame }) {
+  // Render the same card visuals but let height be auto and width fill container
+  return (
+    <article className={cn(
+      "rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5 shadow-lg",
+      "w-full max-w-[720px] mx-auto"
+    )}>
+      <header className="mb-3">
+        <h3 className="text-lg font-semibold tracking-tight text-white/90">{frame.title}</h3>
+      </header>
+      <div className="text-sm break-words leading-relaxed">
+        {frame.content}
+      </div>
+    </article>
+  )
+}
+
+function MobileStack() {
+  // Collect frames we need
+  const about = frames.find((f) => f.id === "about") as CardFrame | undefined;
+  const skills = frames.find((f) => f.id === "skills") as CardFrame | undefined;
+  const projectsOrder = ["baby", "tastetwin", "proxy", "connections"] as const;
+
+  return (
+    <div className="w-full px-4 py-6 space-y-6">
+      {/* About */}
+      <h2 className="text-xl font-semibold text-white/90">About me</h2>
+      {about && <StackCard frame={about} />}
+
+      {/* Skills */}
+      <h2 className="text-xl font-semibold text-white/90 pt-2">My brain</h2>
+      {skills && <StackCard frame={skills} />}
+
+      {/* Projects */}
+      <h2 className="text-xl font-semibold text-white/90 pt-2">What I've worked on</h2>
+      <div className="grid grid-cols-1 gap-4">
+        {projectsOrder.map((id) => {
+          const f = frames.find((fr) => fr.id === id) as CardFrame | undefined;
+          return f ? <StackCard key={id} frame={f} /> : null;
+        })}
+      </div>
+    </div>
+  );
+}
+
+
 type FrameId = (typeof frames)[number]["id"];
 const MIN_SCALE = 0.25;
 const MAX_SCALE = 3;
 
 export function BoardCanvas() {
+  const isMobile = useIsMobile();
   const active = useBoardStore((s) => s.activeFrame);
   const setActive = useBoardStore((s) => s.setActiveFrame);
   const setZoom = useBoardStore((s) => s.setZoom);
@@ -560,7 +608,15 @@ useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFrame]);
 
-  return (
+    if (isMobile) {
+    return (
+      <div className="h-full w-full overflow-y-auto bg-[#181818] text-white">
+        <MobileStack />
+      </div>
+    );
+  }
+
+return (
     <div className="relative h-full w-full bg-[#181818] text-white">
       {/* === TOP BAR: zoom only === */}
       <div className="absolute left-1/2 top-3 z-20 -translate-x-1/2">

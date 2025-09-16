@@ -51,7 +51,7 @@ export default function FigmaLayout() {
         {!isMobile && <LayersSidebar />}
 
         {/* Canvas area; reserve space for right panel only on desktop */}
-        <div className="relative flex-1 min-w-0 overflow-hidden md:pr-80">
+        <div className="relative flex-1 min-w-0 md:pr-80 md:overflow-hidden overflow-y-auto">
           <BoardCanvas />
         </div>
       </div>
